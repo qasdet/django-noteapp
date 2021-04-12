@@ -1,0 +1,30 @@
+<div class="col">
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                {{ note.title }}
+                <span class="badge badge-{{ note.get_label_display }}">
+                    {{ note.due_date }}
+                </span>
+            </h4>
+            {% if type == "DELETE" %}
+            <a href="{{ note.get_finish_item_url }}">
+                <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="green">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+            </a>
+            {% else %}
+            <a href="{{ note.get_recover_item_url }}">
+                <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="grey">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </a>
+            {% endif %}
+            <a href="{{ note.get_delete_item_url }}">
+                <svg style="height: 30px; width: 30px;" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="red">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+            </a>
+        </div>
+    </div>
+</div>
